@@ -1115,6 +1115,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5423159073846480262}
   - component: {fileID: 2898209148025536598}
+  - component: {fileID: 4619980399934496274}
   m_Layer: 0
   m_Name: actor2
   m_TagString: Untagged
@@ -1145,7 +1146,7 @@ Animation:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7377008876379747761}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Animation: {fileID: 4760631029449141777}
   m_Animations:
@@ -1154,6 +1155,18 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &4619980399934496274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7377008876379747761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2750c6bfd8d54ee4d98a6836aeee5fca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7398596314063457933
 GameObject:
   m_ObjectHideFlags: 0

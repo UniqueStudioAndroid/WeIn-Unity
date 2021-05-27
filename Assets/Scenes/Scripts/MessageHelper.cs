@@ -73,7 +73,8 @@ namespace VLiveHelper {
             res[2] = idb[0];
             
             Transform t = go.transform;
-            putVectorInBytes(res, 3, t.position);
+            Vector3 pos = t.position;
+            putVectorInBytes(res, 3, new Vector3(-pos.x, pos.y, pos.z));
 
             Quaternion q0 = t.rotation;
             Quaternion q = new Quaternion(q0.x, -q0.y, -q0.z, q0.w) * Quaternion.Euler(0, 180, 0);
@@ -82,12 +83,7 @@ namespace VLiveHelper {
             putVectorInBytes(res, 31, t.localScale);
 
             VLiveObjectHandler handler = go.GetComponent<VLiveObjectHandler>();
-            PrimitiveType type = handler.type;
-            if (type == PrimitiveType.Cube) {
-                res[43] = 0;
-            } else if (type == PrimitiveType.Sphere) {
-                res[43] = 1;
-            }
+            res[43] = handler.type;
 
             return res;
         }
@@ -117,12 +113,7 @@ namespace VLiveHelper {
                 putVectorInBytes(res, offset + 30, t.localScale);
 
                 VLiveObjectHandler handler = go.GetComponent<VLiveObjectHandler>();
-                PrimitiveType type = handler.type;
-                if (type == PrimitiveType.Cube) {
-                    res[offset + 42] = 0;
-                } else if (type == PrimitiveType.Sphere) {
-                    res[offset + 42] = 1;
-                }
+                res[offset + 42] = handler.type;
 
                 offset += 43;
             }

@@ -209,7 +209,7 @@ public class VLiveManager : MonoBehaviour
             vObj.obj = obj;
             vObj.callback = script.OnMessageReceived;
             Debug.Log("Create virtual object ok...");
-        } else if (msg[1] == '0') {
+        } else if (msg[0] == '0') {
             GameObject obj = GameObject.Instantiate(videoCharacterModel, new Vector3(.0f, -10f, .0f), Quaternion.identity) as GameObject;
             VideoCharacter script = obj.GetComponent<VideoCharacter>();
             vObj.obj = obj;

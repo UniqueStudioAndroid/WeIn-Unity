@@ -10,7 +10,7 @@ public class VLiveManipulator : MonoBehaviour {
     private Hi5_Object_JudgeMent hi5_object_judgeMent_1;
     private Hi5_Object_JudgeMent hi5_object_judgeMent_2;
 
-    private UnityEngine.Object virtualCharacterModel;
+    private UnityEngine.Object cubeModel;
 
     public VLiveManager vliveManager;
 
@@ -32,7 +32,7 @@ public class VLiveManipulator : MonoBehaviour {
         hi5_object_judgeMent_1.Hand = HI5_Left_Human_Collider;
         hi5_object_judgeMent_2.Hand = HI5_Right_Human_Collider;
 
-        virtualCharacterModel = Resources.Load("actor");
+        cubeModel = Resources.Load("cube");
     }
 
     private bool isShowingMenu() {
@@ -102,11 +102,11 @@ public class VLiveManipulator : MonoBehaviour {
     private GameObject creating;
     private int objCount = 0;
     private Dictionary<int, VLiveObjectHandler> objMap = new Dictionary<int, VLiveObjectHandler>();
-    private PrimitiveType type = PrimitiveType.Cube;
+    private byte type = 0;
     private void onCreateObject() {
         Debug.Log("onCreateObject");
-        // creating = GameObject.Instantiate(virtualCharacterModel, new Vector3(.0f, -10f, .0f), Quaternion.identity) as GameObject;
-        creating = GameObject.CreatePrimitive(type);
+        creating = GameObject.Instantiate(cubeModel, new Vector3(.0f, -10f, .0f), Quaternion.identity) as GameObject;
+        // creating = GameObject.CreatePrimitive(type);
         creating.name = "Created_" + objCount;
         VLiveObjectHandler handler = creating.AddComponent<VLiveObjectHandler>();
         objMap.Add(objCount++, handler);
@@ -236,9 +236,9 @@ public class VLiveManipulator : MonoBehaviour {
     private void onRemoveMenu() {
         menu.SetActive(false);
         if (hi5_object_judgeMent_2.IsTwo()) {
-            type = PrimitiveType.Sphere;
+            type = 1;
         } else {
-            type = PrimitiveType.Cube;
+            type = 0;
         }
     }
 

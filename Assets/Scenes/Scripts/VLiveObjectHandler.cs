@@ -7,7 +7,8 @@ public class VLiveObjectHandler : MonoBehaviour {
     // private Quaternion startTargetRot;
     private Vector3 startPos;
     // private Quaternion startRot;
-    public PrimitiveType type;
+    // 0: cubic
+    public byte type;
 
     void Start() {}
 
